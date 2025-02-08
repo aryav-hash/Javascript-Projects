@@ -39,21 +39,15 @@ function scissor(computer) {
 }
 
 function getHumanChoice() {
-    let choice = prompt("What is your choice ?");
-    let generated = getComputerChoice();
-
-    if (choice.toUpperCase == generated) {
-        console.log("It's a TIE !");
+    let choice = prompt("Pick between rock, paper and scissor: ", "void");
+    const userInput = choice.toUpperCase();
+    if (userInput !== "ROCK" || userInput !== "PAPER" || userInput !== "SCISSOR") {
+        return "void";
     }
-    else if (choice.toUpperCase == "ROCK") {
-        rock(generated);
-    }
-    else if (choice.toUpperCase == "SCISSOR") {
-        paper(generated);
-    }
-    else if (choice.toUpperCase == "PAPER") {
-        scissor(generated);
+    else {
+        return userInput;
     }
 }
 
-getHumanChoice();
+const user = getHumanChoice();
+const cp = getComputerChoice();
