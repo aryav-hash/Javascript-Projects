@@ -11,33 +11,6 @@ function getComputerChoice() {
     }
 }
 
-function rock(computer) {
-    if (computer == "SCISSOR") {
-        console.log("You win! ROCK beats SCISSOR.");
-    }
-    else {
-        console.log("You lose! PAPER beats ROCK.");
-    }
-}
-
-function paper(computer) {
-    if (computer == "ROCK") {
-        console.log("You win! PAPER beats ROCK.");
-    }
-    else {
-        console.log("You lose! SCISSOR beats PAPER.");
-    }
-}
-
-function scissor(computer) {
-    if (computer == "ROCK") {
-        console.log("You lose! ROCK beats SCISSOR.");
-    }
-    else {
-        console.log("You win! SCISSOR beats PAPER.");
-    }
-}
-
 function getHumanChoice() {
     while (true) {
         let choice = prompt("Pick between rock, paper and scissor: ", "choice");
@@ -53,10 +26,43 @@ function getHumanChoice() {
     }
 }
 
+function rock(computer) {
+    if (computer == "SCISSOR") {
+        console.log("You win! ROCK beats SCISSOR.");
+        humanScore++;
+    }
+    else {
+        console.log("You lose! PAPER beats ROCK.");
+        computerScore++;
+    }
+}
+
+function paper(computer) {
+    if (computer == "ROCK") {
+        console.log("You win! PAPER beats ROCK.");
+        humanScore++;
+    }
+    else {
+        console.log("You lose! SCISSOR beats PAPER.");
+        computerScore++;
+    }
+}
+
+function scissor(computer) {
+    if (computer == "ROCK") {
+        console.log("You lose! ROCK beats SCISSOR.");
+        computerScore++;
+    }
+    else {
+        console.log("You win! SCISSOR beats PAPER.");
+        humanScore++;
+    }
+}
+
 function playRound(user, cp) {
     if (user == cp) {
         console.log("It's a TIE!");
-        return;
+        return 0;
     }
 
     if (user == "ROCK") {
@@ -68,9 +74,27 @@ function playRound(user, cp) {
     else {
         scissor(cp);
     }
+    return 1;
 }
 
 let humanScore = 0, computerScore = 0;
-const user = getHumanChoice();
-const cp = getComputerChoice();
-playRound(user, cp);
+
+function playGame() {
+    let game = 5;
+    while (game > 0) {
+        const user = getHumanChoice();
+        const cp = getComputerChoice();
+        let outcome = playRound(user, cp);
+        
+        if (outcome == 1) game--;
+    }
+
+    if (humanScore > computerScore) {
+        console.log("Congratulations!! You win this game :)");
+    }
+    else {
+        console.log("You have lost the game. Better luck next time.");
+    }
+}
+
+playGame();
