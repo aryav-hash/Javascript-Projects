@@ -39,15 +39,20 @@ function scissor(computer) {
 }
 
 function getHumanChoice() {
-    let choice = prompt("Pick between rock, paper and scissor: ", "void");
-    const userInput = choice.toUpperCase();
-    if (userInput !== "ROCK" || userInput !== "PAPER" || userInput !== "SCISSOR") {
-        return "void";
-    }
-    else {
-        return userInput;
+    while (true) {
+        let choice = prompt("Pick between rock, paper and scissor: ", "choice");
+        if (choice == null) continue;
+        
+        const userInput = choice.toUpperCase();
+        if (userInput === "ROCK" || userInput === "PAPER" || userInput === "SCISSOR") {
+            return userInput;
+        }
+        else {
+            console.log("Please pick a valid option w.r.t the game.");
+        }
     }
 }
 
+let humanScore = 0, computerScore = 0;
 const user = getHumanChoice();
 const cp = getComputerChoice();
