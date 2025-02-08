@@ -13,28 +13,28 @@ function getComputerChoice() {
 
 function rock(computer) {
     if (computer == "SCISSOR") {
-        console.log("The player WINS !");
+        console.log("You win! ROCK beats SCISSOR.");
     }
     else {
-        console.log("The player LOOSES !");
+        console.log("You lose! PAPER beats ROCK.");
     }
 }
 
 function paper(computer) {
     if (computer == "ROCK") {
-        console.log("The player WINS !");
+        console.log("You win! PAPER beats ROCK.");
     }
     else {
-        console.log("The player LOOSES !");
+        console.log("You lose! SCISSOR beats PAPER.");
     }
 }
 
 function scissor(computer) {
     if (computer == "ROCK") {
-        console.log("The player LOOSES !");
+        console.log("You lose! ROCK beats SCISSOR.");
     }
     else {
-        console.log("The player WINS !");
+        console.log("You win! SCISSOR beats PAPER.");
     }
 }
 
@@ -53,6 +53,24 @@ function getHumanChoice() {
     }
 }
 
+function playRound(user, cp) {
+    if (user == cp) {
+        console.log("It's a TIE!");
+        return;
+    }
+
+    if (user == "ROCK") {
+        rock(cp);
+    }
+    else if (user == "PAPER") {
+        paper(cp);
+    }
+    else {
+        scissor(cp);
+    }
+}
+
 let humanScore = 0, computerScore = 0;
 const user = getHumanChoice();
 const cp = getComputerChoice();
+playRound(user, cp);
