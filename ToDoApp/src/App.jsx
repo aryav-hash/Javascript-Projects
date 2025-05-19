@@ -18,9 +18,14 @@ function App() {
                 <button>PERSONAL</button>
               </div>
             </div>
-          </div>
-          <div>
-
+            <div className="p-5 flex flex-row w-180 relative">
+              <div className="w-180">
+                <input type="text" placeholder=" Add your text here !" name="activity" className="bg-rose-100 py-1 border-2 border-emerald-50 rounded-2xl w-full"/>
+              </div>
+              <div>
+                <button type="submit" className="px-2 py-1.5 bg-amber-300 rounded-2xl aspect-1 absolute right-5 "> Enter </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
