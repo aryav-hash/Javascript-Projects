@@ -20,11 +20,15 @@ function App() {
             </div>
             <div className="p-5 flex flex-row w-180 relative">
               <div className="w-180">
-                <input type="text" placeholder=" Add your text here !" name="activity" className="bg-rose-100 py-1 border-2 border-emerald-50 rounded-2xl w-full"/>
+                <input type="text" placeholder=" Add your text here !" id="activity" name="activity" className="bg-rose-100 py-1 border-2 border-emerald-50 rounded-2xl w-full"/>
               </div>
               <div>
-                <button type="submit" className="px-2 py-1.5 bg-amber-300 rounded-2xl aspect-1 absolute right-5 "> Enter </button>
+                <button type="submit" id="submitButton" className="px-2 py-1.5 bg-amber-300 rounded-2xl aspect-1 absolute right-5 "> Enter </button>
               </div>
+            </div>
+            <div>
+              <ul id="list" className="mt-5 py-5 pl-8 pr-20 font-sans font-medium list-disc bg-amber-100 w-220 h-160 border-1 border-emerald-50 rounded-md">
+              </ul>
             </div>
           </div>
         </div>
