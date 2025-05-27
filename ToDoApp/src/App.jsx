@@ -3,7 +3,20 @@ import { useRef } from 'react';
 function App() {
   const taskInputRef = useRef(null);
   const taskListRef = useRef(null);
-   
+  
+  function reorderList() {
+    const list = taskListRef.current;
+    const items = Array.from(list.children);
+    
+    items.sort((a, b) => {
+      const aCheck = a.querySelector('input[type="checkbox"]').checked;
+      const bCheck = b.querySelector('input[type="checkbox"]').checked;
+      return aCheck - bCheck;
+    });
+    
+    items.forEach(li => list.appendChild(li));
+  }
+
   function display() {
     const task = taskInputRef.current.value.trim();
     if (task === '') return;
@@ -21,6 +34,7 @@ function App() {
       if (span) {
         span.classList.toggle('line-through', e.target.checked);
       }
+      reorderList();
     }
 
     const innerspan = document.createElement('span');
@@ -38,6 +52,7 @@ function App() {
     li.appendChild(deleteButton);
 
     list.appendChild(li);
+    taskInputRef.current.value = '';
   }
   
   return (
