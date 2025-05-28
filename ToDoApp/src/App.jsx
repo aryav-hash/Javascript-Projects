@@ -76,7 +76,7 @@ function App() {
             </div>
             <div className="p-5 flex flex-row w-180 relative">
               <div className="w-180">
-                <input ref={taskInputRef} type="text" placeholder=" Add your text here !" id="activity" name="activity" className="bg-rose-100 py-1 border-2 border-emerald-50 rounded-2xl w-full"/>
+                <input ref={taskInputRef} type="text" placeholder=" Add your text here !" id="activity" name="activity" onKeyDown={e => { if (e.key === 'Enter'){display();}}} className="bg-rose-100 py-1 border-2 border-emerald-50 rounded-2xl w-full"/>
               </div>
               <div>
                 <button type="submit" onClick={display} id="submitButton" className="px-2 py-1.5 bg-amber-300 rounded-2xl aspect-1 absolute right-5 cursor-pointer hover:bg-amber-500"> Enter </button>
