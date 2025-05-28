@@ -83,7 +83,7 @@ function App() {
               </div>
             </div>
             <div>
-              <ul ref={taskListRef} id="list" className="mt-5 pl-8 py-5 pr-8 font-sans font-medium bg-amber-100 w-220 h-160 border-2 border-emerald-50 rounded-md">
+              <ul ref={taskListRef} id="list" className="mt-5 pl-8 py-5 pr-8 font-sans font-medium bg-amber-100 w-220 h-160 border-2 border-emerald-50 rounded-md overflow-y-auto max-h-160">
               </ul>
             </div>
           </div>
